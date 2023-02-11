@@ -12,24 +12,24 @@ function BasketItem(props) {
         <li className='collection-item'>
             {name}{' '}
             <i
-                className='material-icons basket-quantity'
+				className='Tiny material-icons'
                 onClick={() => decQuantity(id)}
             >
-                Убрать
+				arrow_downward
             </i>{' '}
             x{quantity}{' '}
             <i
-                className='material-icons basket-quantity '
+				className='Tiny material-icons'
                 onClick={() => incQuantity(id)}
             >
-                Добавить
+				arrow_upward
             </i>{' '}
             = {price * quantity} руб.
             <span
-                className='secondary-content'
+                className='secondary-content black-text'
                 onClick={() => removeFromBasket(id)}
             >
-                <i className='material-icons basket-delete '>Убрать все</i>
+				<i className='small material-icons'>delete</i>
             </span>
         </li>
     );
