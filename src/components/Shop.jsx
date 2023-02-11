@@ -16,7 +16,7 @@ function Shop() {
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex(
-			(orderItem) => orderItem.mainId === item.mainId
+            (orderItem) => orderItem.mainId === item.mainId
         );
 
         if (itemIndex < 0) {
@@ -49,7 +49,7 @@ function Shop() {
 
     const incQuantity = (itemId) => {
         const newOrder = order.map((el) => {
-            if (el.id=== itemId) {
+            if (el.id === itemId) {
                 const newQuantity = el.quantity + 1;
                 return {
                     ...el,
