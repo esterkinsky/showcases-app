@@ -1,12 +1,15 @@
+import React, {useContext} from 'react';
+import { ShopContext } from '../context';
+
 function GoodsItem(props) {
     const {
 		mainId,
-        name,
         price,
 		displayName,
 		displayAssets,
-        addToBasket = Function.prototype,
     } = props;
+
+	const {addToBasket} = useContext(ShopContext)
 
 	const busketPrice = price.regularPrice;
 
@@ -16,8 +19,7 @@ function GoodsItem(props) {
 				<img src={displayAssets[0].full_background} alt={displayName} />
             </div>
 			<div className='card-content'>
-				<span className='card-title'>{name}</span>
-				<p>{displayName}</p>
+				<span className='card-title'>{displayName}</span>
 			</div>
             <div className='card-action'>
                 <button 

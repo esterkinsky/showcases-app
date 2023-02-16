@@ -1,38 +1,41 @@
+import React, { useContext } from 'react';
+import { ShopContext } from '../context';
+
 function BasketItem(props) {
-    const {
-        id,
+	const {
+		itemId,
 		displayName,
-        price,
-        quantity,
-        removeFromBasket = Function.prototype,
-        incQuantity = Function.prototype,
-        decQuantity = Function.prototype,
-    } = props;
-    return (
-        <li className='collection-item'>
+		price,
+		quantity,
+	} = props;
+
+	const { removeFromBasket, incQuantity, decQuantity } = useContext(ShopContext);
+
+	return (
+		<li className='collection-item'>
 			{displayName}{' '}
-            <i
+			<i
 				className='Tiny material-icons'
-                onClick={() => decQuantity(id)}
-            >
+				onClick={() => decQuantity(itemId)}
+			>
 				arrow_downward
-            </i>{' '}
-            x{quantity}{' '}
-            <i
+			</i>{' '}
+			x{quantity}{' '}
+			<i
 				className='Tiny material-icons'
-                onClick={() => incQuantity(id)}
-            >
+				onClick={() => incQuantity(itemId)}
+			>
 				arrow_upward
-            </i>{' '}
-            = {price * quantity} руб.
-            <span
-                className='secondary-content black-text'
-                onClick={() => removeFromBasket(id)}
-            >
+			</i>{' '}
+			= {price * quantity} руб.
+			<span
+				className='secondary-content black-text'
+				onClick={() => removeFromBasket(itemId)}
+			>
 				<i className='small material-icons'>delete</i>
-            </span>
-        </li>
-    );
+			</span>
+		</li>
+	);
 }
 
 export { BasketItem };
